@@ -1,0 +1,25 @@
+name: Publish Rasavin Windows preview download
+on:
+  push:
+    branches: ["feat/desktop-mvp"]
+    paths: [".github/workflows/publish-preview.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retrieve verified Windows installer artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 45044709418 --repo "${GITHUB_REPOSITORY}" --name "Rasavin-Windows-preview" --dir installer
+          test -s installer/nsis/Rasavin_0.1.1_x64-setup.exe
+          mv installer/nsis/Rasavin_0.1.1_x64-setup.exe Rasavin-Setup-v0.1.1-Offline.exe
+          sha256sum Rasavin-Setup-v0.1.1-Offline.exe
+      - name: Publish prerelease installer for one-click download
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v0.1.1-preview" "Rasavin-Setup-v0.1.1-Offline.exe" --repo "${GITHUB_REPOSITORY}" --target "6968f3ce17670f4be3d812d14fee8e645a7c01a5" --title "Rasavin 0.1.1 Preview for Windows" --prerelease --notes "Windows x64 offline installer (WebView2 bundled). Early test build only. Do NOT enter real patient data; backups, access controls and clinical readiness are not implemented. Unsigned executable can show Windows SmartScreen warning."
