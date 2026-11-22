@@ -26,9 +26,9 @@
 ## Updater activation
 The application includes updater checks and install UI logic but DOES NOT activate them until the maintainer:
 1. Generates and backs up a Tauri update signing key **outside Git**.
-2. Adds public key and HTTPS update manifest endpoint to \`src-tauri/tauri.conf.json\` under \`plugins.updater\`.
-3. Enables \`bundle.createUpdaterArtifacts\`, configures CI secret \`TAURI_SIGNING_PRIVATE_KEY\`, and publishes signed packages + manifest on a reliable CDN reachable in Iran.
-4. Sets \`VITE_RASAVIN_UPDATER=enabled\` in signed production builds.
+2. Adds public key and HTTPS update manifest endpoint to `src-tauri/tauri.conf.json` under `plugins.updater`.
+3. Enables `bundle.createUpdaterArtifacts`, configures CI secret `TAURI_SIGNING_PRIVATE_KEY`, and publishes signed packages + manifest on a reliable CDN reachable in Iran.
+4. Sets `VITE_RASAVIN_UPDATER=enabled` in signed production builds.
 Never include private signing keys in Git or disable update signature verification.
 
 ## Safety gates before production
