@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import {
   LayoutDashboard, UsersRound, ClipboardList, Wallet, BellRing, Plus, Search,
-  CalendarDays, X, Check, Settings2, ShieldCheck, Monitor, ChevronLeft,
+  X, Check, Settings2, ShieldCheck, Monitor, ChevronLeft,
   Activity, HeartPulse, CircleHelp, CloudOff, Sparkles, RefreshCw,
   Download, PencilLine, Stethoscope, Clock3, UserRoundCheck, ArrowUpLeft
 } from 'lucide-react';
@@ -117,7 +117,7 @@ function App() {
   }
   const change = (key: string, value: string) => setForm(current => ({ ...current, [key]: value }));
   const required = (key: string) => (form[key] ?? '').trim();
-  async function saveForm(event: React.FormEvent) {
+  async function saveForm(event: FormEvent) {
     event.preventDefault();
     if (!modal || busy) return;
     setError('');
@@ -165,7 +165,7 @@ function App() {
     try { await completeFollowup(id); await refresh(); }
     catch (e) { setError('ثبت وضعیت انجام نشد: ' + String(e)); }
   }
-  async function saveSettings(event: React.FormEvent) {
+  async function saveSettings(event: FormEvent) {
     event.preventDefault();
     if (!clinicDraft.trim()) { setError('نام مطب نمی‌تواند خالی باشد.'); return; }
     try {
