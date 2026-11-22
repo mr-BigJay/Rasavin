@@ -1,6 +1,6 @@
 [package]
 name = "rasavin"
-version = "0.1.0"
+version = "0.1.1"
 description = "Rasavin clinic management desktop application"
 authors = ["Rasavin"]
 edition = "2021"
