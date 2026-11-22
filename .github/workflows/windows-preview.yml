@@ -1,8 +1,6 @@
 name: Windows preview installer
 on:
   workflow_dispatch:
-  push:
-    branches: ["feat/desktop-mvp"]
 jobs:
   build-windows:
     runs-on: windows-latest
