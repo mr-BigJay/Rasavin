@@ -11,24 +11,24 @@
 
 نیازمندی‌ها: Node.js LTS، Rust، پیش‌نیازهای Tauri 2 روی ویندوز شامل Microsoft C++ Build Tools و WebView2.
 
-\`\`\`bash
+```bash
 npm install
 npm run icons
 npm run desktop
-\`\`\`
+```
 
 برای بررسی صرفاً رابط کاربری در مرورگر:
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 حالت مرورگر فقط پیش‌نمایش موقتی است؛ اطلاعات در حافظه ذخیره می‌شود و با Refresh از بین می‌رود. ذخیره‌سازی دائمی SQLite فقط در اپ Tauri فعال است.
 
 ساخت نسخه ویندوزی (روی Windows):
-\`\`\`bash
+```bash
 npm run icons
 npm run tauri build
-\`\`\`
-خروجی‌های NSIS (.exe) و MSI در \`src-tauri/target/release/bundle/\` قرار می‌گیرند.
+```
+خروجی‌های NSIS (.exe) و MSI در `src-tauri/target/release/bundle/` قرار می‌گیرند.
 
 ## تعهد محصول
 - قابلیت‌های پایه و دسترسی به اطلاعات محلی هرگز مشروط به پرداخت/اتصال نیست.
